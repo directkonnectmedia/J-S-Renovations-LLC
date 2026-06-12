@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>R&amp;S Renovations LLC | Roofing, Gutters &amp; Insurance Claims</title>
+  <meta name="description" content="R&amp;S Renovations LLC — premium roofing, gutter work, insurance claims, and public adjusting. Free, no-obligation consultation. Integrity in every shingle and claim." />
+  <meta name="theme-color" content="#800020" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23800020'/%3E%3Ctext x='16' y='22' font-family='Arial' font-size='15' font-weight='700' fill='white' text-anchor='middle'%3ERS%3C/text%3E%3C/svg%3E" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="R&amp;S Renovations LLC" />
+  <meta property="og:description" content="Premium roofing, gutters, and insurance-claim expertise. Free no-obligation consultation." />
+  <meta property="og:type" content="website" />
+
+  <!-- Fonts: preconnect + display swap for fast first paint -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800&display=swap" />
+
+  <style>
+    :root {
+      /* Heritage Craft tokens (DESIGN.md) */
+      --primary: #800020;
+      --primary-dark: #600018;
+      --primary-deep: #570013;
+      --on-primary: #ffffff;
+      --accent: #ba1a1a;
+      --surface: #fff8f7;
+      --surface-container-low: #fff0f0;
+      --surface-container: #ffe9e8;
+      --surface-variant: #f5dddd;
+      --white: #ffffff;
+      --on-surface: #251819;
+      --on-surface-variant: #584141;
+      --outline: #8c7071;
+      --outline-variant: #e0bfbf;
+      --tertiary: #262728;
+      --tertiary-container: #1b1c1c;
+      --on-tertiary: #ffffff;
+      --on-tertiary-variant: #a8a8a8;
+
+      --container: 1280px;
+      --gutter: 24px;
+      --radius-sm: 0.25rem;
+      --radius-lg: 0.5rem;
+      --radius-xl: 0.75rem;
+      --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.05);
+      --shadow-card: 0 10px 30px rgba(37, 24, 25, 0.08);
+
+      --font-head: 'Montserrat', system-ui, -apple-system, 'Segoe UI', sans-serif;
+      --font-body: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--on-surface);
+      background: var(--surface);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img { max-width: 100%; display: block; }
+
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      width: 100%;
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 0 var(--gutter);
+    }
+
+    .label {
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 15px;
+      padding: 12px 22px;
+      border-radius: var(--radius-sm);
+      border: 0;
+      cursor: pointer;
+      transition: transform 0.15s ease, box-shadow 0.2s ease, background 0.2s ease, opacity 0.2s ease;
+    }
+    .btn-primary {
+      color: var(--on-primary);
+      background: linear-gradient(180deg, var(--primary) 0%, var(--primary-dark) 100%);
+    }
+    .btn-primary:hover { box-shadow: var(--shadow-soft); transform: translateY(-1px); }
+    .btn-accent {
+      color: #fff;
+      background: linear-gradient(180deg, #cf2222 0%, var(--accent) 100%);
+    }
+    .btn-accent:hover { box-shadow: var(--shadow-soft); transform: translateY(-1px); }
+    .btn-ghost {
+      color: #fff;
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+    }
+    .btn-ghost:hover { background: rgba(255, 255, 255, 0.1); }
+    .btn-block { width: 100%; }
+
+    /* ---------- Top utility bar ---------- */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(255, 248, 247, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--outline-variant);
+    }
+    .topbar .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+    .brand {
+      display: flex;
+      align-items: baseline;
+      gap: 2px;
+      font-family: var(--font-head);
+      font-weight: 800;
+      font-size: 20px;
+      letter-spacing: -0.01em;
+    }
+    .brand .amp { color: var(--primary); }
+    .brand .llc { font-size: 12px; font-weight: 600; color: var(--on-surface-variant); margin-left: 4px; align-self: center; }
+    .topnav { display: flex; align-items: center; gap: 28px; }
+    .topnav a { font-size: 14px; font-weight: 500; color: var(--on-surface-variant); }
+    .topnav a:hover { color: var(--primary); }
+
+    /* ---------- Hero ---------- */
+    .hero {
+      position: relative;
+      color: #fff;
+      text-align: center;
+      padding: 96px 0 110px;
+      background:
+        linear-gradient(180deg, rgba(37, 24, 25, 0.55) 0%, rgba(37, 24, 25, 0.78) 100%),
+        url('https://images.unsplash.com/photo-1632759145351-1d592919f522?auto=format&fit=crop&w=1920&q=70') center / cover no-repeat;
+    }
+    .hero h1 {
+      font-family: var(--font-head);
+      font-weight: 800;
+      font-size: clamp(36px, 6vw, 60px);
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+    }
+    .hero h1 .amp { color: var(--primary-fixed, #ffb3b5); }
+    .hero .sub {
+      margin: 18px auto 0;
+      max-width: 640px;
+      font-size: clamp(18px, 2.4vw, 24px);
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.92);
+    }
+    .hero .trust {
+      display: flex;
+      gap: 28px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 28px;
+      font-size: 15px;
+    }
+    .hero .trust span { display: inline-flex; align-items: center; gap: 8px; }
+    .hero .trust svg { flex: none; }
+    .hero .cta-row { margin-top: 36px; display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+    /* ---------- Dark service nav strip ---------- */
+    .servicestrip { background: var(--tertiary-container); }
+    .servicestrip .container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 40px;
+      justify-content: center;
+      padding-top: 16px;
+      padding-bottom: 16px;
+    }
+    .servicestrip a {
+      color: #fff;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      opacity: 0.85;
+    }
+    .servicestrip a:hover { opacity: 1; color: #ffb3b5; }
+
+    /* ---------- Section primitives ---------- */
+    section { padding: 80px 0; }
+    .section-head { text-align: center; margin-bottom: 48px; }
+    .section-head .label { color: var(--primary); }
+    .section-head h2 {
+      font-family: var(--font-head);
+      font-weight: 700;
+      font-size: clamp(28px, 4vw, 36px);
+      letter-spacing: -0.01em;
+      margin-top: 8px;
+    }
+    .section-head p { color: var(--on-surface-variant); margin-top: 10px; max-width: 620px; margin-inline: auto; }
+
+    /* ---------- Services grid ---------- */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--gutter);
+    }
+    .service-card {
+      background: var(--white);
+      border: 1px solid var(--outline-variant);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      transition: box-shadow 0.25s ease, transform 0.2s ease, border-color 0.2s ease;
+    }
+    .service-card:hover { box-shadow: var(--shadow-card); transform: translateY(-3px); border-color: var(--primary); }
+    .service-card .thumb { aspect-ratio: 4 / 3; overflow: hidden; }
+    .service-card .thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
+    .service-card:hover .thumb img { transform: scale(1.05); }
+    .service-card .body { padding: 22px 20px 26px; }
+    .service-card h3 { font-family: var(--font-head); font-size: 19px; font-weight: 600; }
+    .service-card p { margin-top: 8px; font-size: 14.5px; color: var(--on-surface-variant); }
+
+    /* ---------- Estimate / stepper ---------- */
+    .estimate {
+      background:
+        linear-gradient(180deg, rgba(27, 28, 28, 0.92), rgba(27, 28, 28, 0.96)),
+        url('https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=1920&q=60') center / cover fixed;
+      color: #fff;
+    }
+    .estimate .section-head .label { color: #ffb3b5; }
+    .estimate .section-head p { color: rgba(255, 255, 255, 0.7); }
+    .stepper {
+      max-width: 720px;
+      margin: 0 auto;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: var(--radius-xl);
+      padding: 36px;
+      backdrop-filter: blur(6px);
+    }
+    .progress { display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 30px; }
+    .progress .dot {
+      width: 30px; height: 30px; border-radius: 50%;
+      display: grid; place-items: center;
+      font-size: 13px; font-weight: 600;
+      background: rgba(255, 255, 255, 0.1);
+      color: rgba(255, 255, 255, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      transition: all 0.25s ease;
+    }
+    .progress .dot.active { background: linear-gradient(180deg, var(--primary), var(--primary-dark)); color: #fff; border-color: transparent; }
+    .progress .dot.done { background: var(--primary-deep); color: #fff; border-color: transparent; }
+    .progress .bar { width: 36px; height: 2px; background: rgba(255, 255, 255, 0.18); }
+
+    .step { display: none; }
+    .step.active { display: block; animation: fade 0.3s ease; }
+    @keyframes fade { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+
+    .step h3 { font-family: var(--font-head); font-weight: 600; font-size: 20px; text-align: center; margin-bottom: 22px; }
+
+    .choice-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .choice {
+      display: flex; align-items: center; gap: 12px;
+      padding: 18px; cursor: pointer;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1.5px solid rgba(255, 255, 255, 0.16);
+      border-radius: var(--radius-lg);
+      font-weight: 600; font-size: 15px;
+      transition: all 0.2s ease;
+    }
+    .choice:hover { border-color: rgba(255, 179, 181, 0.7); background: rgba(255, 255, 255, 0.08); }
+    .choice.selected { border-color: var(--primary); background: rgba(128, 0, 32, 0.25); }
+    .choice .ic { width: 22px; height: 22px; color: #ffb3b5; flex: none; }
+
+    .field { margin-bottom: 16px; }
+    .field label { display: block; font-size: 13px; font-weight: 600; letter-spacing: 0.04em; margin-bottom: 6px; color: rgba(255,255,255,0.8); }
+    .field input, .field textarea {
+      width: 100%; font-family: var(--font-body); font-size: 15px; color: #fff;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: var(--radius-sm);
+      padding: 12px 14px;
+    }
+    .field input::placeholder, .field textarea::placeholder { color: rgba(255,255,255,0.45); }
+    .field input:focus, .field textarea:focus { outline: none; border-color: #ffb3b5; }
+
+    .step-actions { display: flex; justify-content: space-between; gap: 12px; margin-top: 26px; }
+    .step-actions .btn-ghost { min-width: 96px; }
+    .step-actions .spacer { flex: 1; }
+
+    .confirm { text-align: center; padding: 12px 0; }
+    .confirm .check {
+      width: 60px; height: 60px; margin: 0 auto 18px;
+      border-radius: 50%; display: grid; place-items: center;
+      background: linear-gradient(180deg, var(--primary), var(--primary-dark));
+    }
+
+    /* ---------- Integrity / stats ---------- */
+    .integrity .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      align-items: center;
+    }
+    .integrity h2 {
+      font-family: var(--font-head); font-weight: 700;
+      font-size: clamp(28px, 4vw, 40px); line-height: 1.15; letter-spacing: -0.01em;
+    }
+    .integrity p { margin-top: 18px; color: var(--on-surface-variant); font-size: 17px; }
+    .stats { display: flex; gap: 48px; margin-top: 32px; }
+    .stat .num { font-family: var(--font-head); font-weight: 800; font-size: 40px; color: var(--primary); line-height: 1; }
+    .stat .cap { margin-top: 6px; font-size: 14px; color: var(--on-surface-variant); }
+    .integrity .photo { border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow-card); aspect-ratio: 4 / 3; }
+    .integrity .photo img { width: 100%; height: 100%; object-fit: cover; }
+
+    /* ---------- Footer ---------- */
+    footer { background: var(--tertiary-container); color: rgba(255, 255, 255, 0.78); padding: 64px 0 0; }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1.4fr;
+      gap: 48px;
+      padding-bottom: 48px;
+    }
+    footer .brand { color: #fff; }
+    footer .brand .amp { color: #ffb3b5; }
+    footer .brand .llc { color: rgba(255,255,255,0.6); }
+    .footer-col h4 { color: #fff; font-family: var(--font-head); font-size: 15px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 16px; }
+    .footer-col a { display: block; padding: 5px 0; font-size: 14.5px; color: rgba(255, 255, 255, 0.7); }
+    .footer-col a:hover { color: #ffb3b5; }
+    .footer-about p { margin-top: 14px; font-size: 14.5px; max-width: 340px; }
+    .newsletter { display: flex; gap: 8px; margin-top: 6px; }
+    .newsletter input {
+      flex: 1; font-family: var(--font-body); font-size: 14px; color: #fff;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: var(--radius-sm); padding: 11px 14px;
+    }
+    .newsletter input:focus { outline: none; border-color: #ffb3b5; }
+    .contact-line { display: flex; align-items: center; gap: 10px; font-size: 14.5px; margin-bottom: 10px; }
+    .contact-line svg { color: #ffb3b5; flex: none; }
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      padding: 22px 0;
+      display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+      font-size: 13px; color: rgba(255, 255, 255, 0.55);
+    }
+    .footer-bottom a { color: rgba(255, 255, 255, 0.55); }
+    .footer-bottom a:hover { color: #fff; }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 960px) {
+      .services-grid { grid-template-columns: 1fr 1fr; }
+      .integrity .container { grid-template-columns: 1fr; gap: 36px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .footer-about { grid-column: 1 / -1; }
+    }
+    @media (max-width: 640px) {
+      section { padding: 56px 0; }
+      .topnav { display: none; }
+      .services-grid { grid-template-columns: 1fr; }
+      .choice-grid { grid-template-columns: 1fr; }
+      .stepper { padding: 24px 20px; }
+      .stats { gap: 32px; }
+      .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top utility bar -->
+  <header class="topbar">
+    <div class="container">
+      <a class="brand" href="#top" aria-label="R and S Renovations LLC home">
+        R<span class="amp">&amp;</span>S&nbsp;Renovations <span class="llc">LLC</span>
+      </a>
+      <nav class="topnav" aria-label="Primary">
+        <a href="#services">Services</a>
+        <a href="#estimate">Get an Estimate</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a class="btn btn-accent" href="#estimate">Get a Quote</a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <main id="top">
+    <section class="hero">
+      <div class="container">
+        <h1>R<span class="amp">&amp;</span>S Renovations LLC</h1>
+        <p class="sub">Free, No-Obligation Consultation</p>
+        <div class="trust">
+          <span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ffb3b5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            Licensed &amp; Insured
+          </span>
+          <span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ffb3b5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 7.4H22l-6 4.4 2.3 7.2L12 16.8 5.7 21l2.3-7.2-6-4.4h7.6z"/></svg>
+            5-Star Local Reputation
+          </span>
+        </div>
+        <div class="cta-row">
+          <a class="btn btn-accent" href="#estimate">Get Your Precision Estimate</a>
+          <a class="btn btn-ghost" href="#services">View Our Services</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Dark service nav strip -->
+    <nav class="servicestrip" aria-label="Services">
+      <div class="container">
+        <a href="#services">Roofing</a>
+        <a href="#services">Gutter Work</a>
+        <a href="#services">Insurance Claims</a>
+        <a href="#services">Public Adjusting</a>
+      </div>
+    </nav>
+
+    <!-- Services -->
+    <section id="services">
+      <div class="container">
+        <div class="section-head">
+          <span class="label">What We Do</span>
+          <h2>Services Offered</h2>
+          <p>Precision craftsmanship and transparent claims advocacy, from the first shingle to the final settlement.</p>
+        </div>
+        <div class="services-grid">
+          <article class="service-card">
+            <div class="thumb"><img loading="lazy" src="https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?auto=format&fit=crop&w=600&q=60" alt="New roof installation" /></div>
+            <div class="body">
+              <h3>Roofing</h3>
+              <p>Expert installation and repair of high-quality roofing systems built to last and to protect.</p>
+            </div>
+          </article>
+          <article class="service-card">
+            <div class="thumb"><img loading="lazy" src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=600&q=60" alt="Seamless gutter installation" /></div>
+            <div class="body">
+              <h3>Gutter Work</h3>
+              <p>Seamless gutter installation and maintenance to protect your foundation and exterior.</p>
+            </div>
+          </article>
+          <article class="service-card">
+            <div class="thumb"><img loading="lazy" src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=600&q=60" alt="Insurance claim paperwork" /></div>
+            <div class="body">
+              <h3>Insurance Claims</h3>
+              <p>End-to-end guidance through storm and damage claims so you receive the coverage you are owed.</p>
+            </div>
+          </article>
+          <article class="service-card">
+            <div class="thumb"><img loading="lazy" src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=600&q=60" alt="Public adjuster reviewing documents" /></div>
+            <div class="body">
+              <h3>Public Adjusting</h3>
+              <p>Licensed advocates working solely for you to maximize and expedite your property settlement.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Estimate stepper -->
+    <section id="estimate" class="estimate">
+      <div class="container">
+        <div class="section-head">
+          <span class="label">Free Quote</span>
+          <h2>Get Your Precision Estimate</h2>
+          <p>Answer a few quick questions and our team will reach out with a tailored, no-obligation estimate.</p>
+        </div>
+
+        <form class="stepper" id="stepper" novalidate>
+          <div class="progress" aria-hidden="true">
+            <span class="dot active" data-dot="1">1</span>
+            <span class="bar"></span>
+            <span class="dot" data-dot="2">2</span>
+            <span class="bar"></span>
+            <span class="dot" data-dot="3">3</span>
+          </div>
+
+          <!-- Step 1: service -->
+          <div class="step active" data-step="1">
+            <h3>Which service do you need?</h3>
+            <div class="choice-grid" role="radiogroup" aria-label="Service">
+              <label class="choice"><input type="radio" name="service" value="Roofing" hidden /><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/></svg>Roofing</label>
+              <label class="choice"><input type="radio" name="service" value="Gutter Work" hidden /><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h18l-2 6H5z"/><path d="M7 13v4"/><path d="M17 13v4"/></svg>Gutter Work</label>
+              <label class="choice"><input type="radio" name="service" value="Insurance Claims" hidden /><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 15l2 2 4-4"/></svg>Insurance Claims</label>
+              <label class="choice"><input type="radio" name="service" value="Public Adjusting" hidden /><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 4v5c0 5-3.5 7.7-8 9-4.5-1.3-8-4-8-9V7z"/><path d="M9 12l2 2 4-4"/></svg>Public Adjusting</label>
+            </div>
+            <div class="step-actions">
+              <span class="spacer"></span>
+              <button type="button" class="btn btn-primary" data-next>Continue</button>
+            </div>
+          </div>
+
+          <!-- Step 2: details -->
+          <div class="step" data-step="2">
+            <h3>Tell us about your property</h3>
+            <div class="field">
+              <label for="address">Property address</label>
+              <input id="address" name="address" type="text" placeholder="123 Main St, City, ST" autocomplete="street-address" />
+            </div>
+            <div class="field">
+              <label for="details">Brief description of the work or damage</label>
+              <textarea id="details" name="details" rows="3" placeholder="e.g. Storm damage to roof and gutters after recent hail"></textarea>
+            </div>
+            <div class="step-actions">
+              <button type="button" class="btn btn-ghost" data-prev>Back</button>
+              <span class="spacer"></span>
+              <button type="button" class="btn btn-primary" data-next>Continue</button>
+            </div>
+          </div>
+
+          <!-- Step 3: contact -->
+          <div class="step" data-step="3">
+            <h3>Where should we send your estimate?</h3>
+            <div class="field">
+              <label for="name">Full name</label>
+              <input id="name" name="name" type="text" placeholder="Jane Doe" autocomplete="name" />
+            </div>
+            <div class="field">
+              <label for="phone">Phone</label>
+              <input id="phone" name="phone" type="tel" placeholder="(555) 123-4567" autocomplete="tel" />
+            </div>
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" placeholder="jane@example.com" autocomplete="email" />
+            </div>
+            <div class="step-actions">
+              <button type="button" class="btn btn-ghost" data-prev>Back</button>
+              <span class="spacer"></span>
+              <button type="submit" class="btn btn-accent">Request My Estimate</button>
+            </div>
+          </div>
+
+          <!-- Confirmation -->
+          <div class="step" data-step="4">
+            <div class="confirm">
+              <div class="check"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div>
+              <h3>Request received</h3>
+              <p style="color: rgba(255,255,255,0.75); max-width: 420px; margin: 0 auto;">Thank you. A member of the R&amp;S Renovations team will contact you within one business day with your no-obligation estimate.</p>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- Integrity / stats -->
+    <section id="about" class="integrity">
+      <div class="container">
+        <div>
+          <span class="label" style="color: var(--primary);">Our Promise</span>
+          <h2 style="margin-top:8px;">Integrity in every shingle and claim.</h2>
+          <p>We are a family-owned business built on craftsmanship and honesty. From the first inspection to the final settlement, we treat your home as our own — doing the work right and standing behind it. No shortcuts, no surprises, just dependable results.</p>
+          <div class="stats">
+            <div class="stat"><div class="num">12+</div><div class="cap">Years of experience</div></div>
+            <div class="stat"><div class="num">5k+</div><div class="cap">Projects completed</div></div>
+            <div class="stat"><div class="num">100%</div><div class="cap">Licensed &amp; insured</div></div>
+          </div>
+          <div style="margin-top:32px;">
+            <a class="btn btn-primary" href="#estimate">Start Your Free Estimate</a>
+          </div>
+        </div>
+        <div class="photo">
+          <img loading="lazy" src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=900&q=65" alt="Roofing crew working on a residential roof" />
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer id="contact">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-about">
+          <a class="brand" href="#top">R<span class="amp">&amp;</span>S&nbsp;Renovations <span class="llc">LLC</span></a>
+          <p>Premium roofing, gutter work, and insurance-claim advocacy for homeowners who expect quality, transparency, and a premium experience.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <a href="#services">Roofing</a>
+          <a href="#services">Gutter Work</a>
+          <a href="#services">Insurance Claims</a>
+          <a href="#services">Public Adjusting</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contact Us</h4>
+          <div class="contact-line">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            (555) 123-4567
+          </div>
+          <div class="contact-line">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/><path d="M22 6l-10 7L2 6"/></svg>
+            info@rsrenovationsllc.com
+          </div>
+          <form class="newsletter" onsubmit="return false;">
+            <input type="email" placeholder="Email for updates" aria-label="Email for updates" />
+            <button class="btn btn-accent" type="submit">Send</button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span id="year">2026</span> R&amp;S Renovations LLC. All rights reserved.</span>
+        <span>
+          <a href="#">Privacy Policy</a> &nbsp;·&nbsp; <a href="#">Terms of Service</a>
+        </span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Graceful image fallback: if a CDN image fails, show a branded gradient instead of broken alt text
+    document.querySelectorAll('img').forEach(function (img) {
+      img.addEventListener('error', function () {
+        var box = img.parentElement;
+        box.style.background = 'linear-gradient(135deg, #800020, #570013)';
+        img.remove();
+      });
+    });
+
+    // Service choice selection
+    document.querySelectorAll('.choice').forEach(function (c) {
+      c.addEventListener('click', function () {
+        document.querySelectorAll('.choice').forEach(function (x) { x.classList.remove('selected'); });
+        c.classList.add('selected');
+        c.querySelector('input').checked = true;
+      });
+    });
+
+    // Multi-step navigation
+    var form = document.getElementById('stepper');
+    var steps = form.querySelectorAll('.step');
+    var dots = form.querySelectorAll('.dot');
+    var current = 1;
+    var maxStep = 3; // steps 1-3 are input; 4 is confirmation
+
+    function render() {
+      steps.forEach(function (s) {
+        s.classList.toggle('active', Number(s.dataset.step) === current);
+      });
+      dots.forEach(function (d) {
+        var n = Number(d.dataset.dot);
+        d.classList.toggle('active', n === current);
+        d.classList.toggle('done', n < current);
+      });
+    }
+
+    form.addEventListener('click', function (e) {
+      if (e.target.matches('[data-next]')) {
+        if (current === 1 && !form.querySelector('input[name="service"]:checked')) {
+          alert('Please select a service to continue.');
+          return;
+        }
+        if (current < maxStep) { current++; render(); }
+      }
+      if (e.target.matches('[data-prev]')) {
+        if (current > 1) { current--; render(); }
+      }
+    });
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      // No backend yet — show confirmation. Swap this for a real endpoint when ready.
+      current = 4;
+      render();
+    });
+  </script>
+</body>
+</html>
