@@ -206,18 +206,19 @@
     .hero-scrim {
       position: absolute; inset: 0; z-index: 2; pointer-events: none;
       background: linear-gradient(180deg,
-        rgba(18,14,14,0.70) 0%,
-        rgba(18,14,14,0.62) 30%,
-        rgba(18,14,14,0.45) 55%,
-        rgba(18,14,14,0.15) 72%,
-        rgba(18,14,14,0) 84%);
+        rgba(18,14,14,0.58) 0%,
+        rgba(18,14,14,0.24) 15%,
+        rgba(18,14,14,0) 32%,
+        rgba(18,14,14,0) 50%,
+        rgba(18,14,14,0.34) 72%,
+        rgba(18,14,14,0.74) 100%);
     }
     /* overlay content positioned in the upper area, above the trucks */
     .hero-overlay {
       position: absolute; inset: 0; z-index: 3;
       display: flex; flex-direction: column; align-items: center; text-align: center;
       justify-content: flex-start;
-      padding: 15cqw 5cqw 4cqw;
+      padding: 9cqw 5cqw 10cqw;   /* logo ~75% up; text group pushed to lower third */
       pointer-events: none;       /* let only interactive children catch clicks */
     }
     .hero-overlay .hero-logo { margin: 0; }
@@ -226,7 +227,7 @@
       filter: drop-shadow(0 3px 10px rgba(0,0,0,0.55));
     }
     .hero-overlay .sub {
-      margin: 2.6cqw auto 0;
+      margin: auto auto 0;        /* margin-top:auto opens the gap below the logo, sinking the text group */
       font-size: clamp(13px, 3cqw, 24px);
     }
     .hero-overlay .trust {
@@ -239,7 +240,7 @@
     .hero-overlay .sub, .hero-overlay .trust, .hero-overlay .hero-logo { pointer-events: auto; }
     /* compact the overlay when the photo frame is narrow (mobile) so nothing overflows the 4:3 frame */
     @container (max-width: 600px) {
-      .hero-overlay { padding-top: 3cqw; }
+      .hero-overlay { padding-top: 3cqw; padding-bottom: 6cqw; }
       .hero-overlay .hero-logo img { width: 40cqw; }
       .hero-overlay .sub { margin-top: 1.6cqw; }
       .hero-overlay .trust { margin-top: 1.6cqw; gap: 3cqw; }
