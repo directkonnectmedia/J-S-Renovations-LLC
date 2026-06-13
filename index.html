@@ -114,17 +114,26 @@
     .btn-ghost:hover { background: rgba(255, 255, 255, 0.1); }
     .btn-block { width: 100%; }
 
-    /* ---------- Top utility bar ---------- */
+    /* ---------- Top utility bar (animated flag background) ---------- */
     .topbar {
       position: sticky;
       top: 0;
       z-index: 50;
-      background: rgba(255, 248, 247, 0.85);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--outline-variant);
+      overflow: hidden;                 /* clip the waving flag */
+      background: #2b2c2e;              /* fallback behind the flag */
+      border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+    }
+    .nav-flag {
+      position: absolute; inset: 0; z-index: 0;
+      background: url('images/flag.png') center / cover no-repeat;
+    }
+    .nav-flag-overlay {
+      position: absolute; inset: 0; z-index: 1;
+      background: rgba(64, 66, 70, 0.62);   /* gray overlay muting the flag */
     }
     .topbar .container {
+      position: relative;
+      z-index: 2;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -138,8 +147,8 @@
     .hero-logo img { display: block; margin: 0 auto; width: min(440px, 84vw); height: auto; filter: drop-shadow(0 4px 14px rgba(0,0,0,0.55)); }
     .footer-logo img { height: 76px; }          /* footer */
     .topnav { display: flex; align-items: center; gap: 28px; }
-    .topnav a { font-size: 14px; font-weight: 500; color: var(--on-surface-variant); }
-    .topnav a:hover { color: var(--primary); }
+    .topnav a { font-size: 14px; font-weight: 600; color: rgba(255, 255, 255, 0.92); text-shadow: 0 1px 3px rgba(0, 0, 0, 0.55); }
+    .topnav a:hover { color: #ffb3b5; }
 
     /* ---------- Hero ---------- */
     .hero {
@@ -469,6 +478,10 @@
 
   <!-- Top utility bar -->
   <header class="topbar">
+    <!-- static American flag background + gray overlay -->
+    <div class="nav-flag" aria-hidden="true"></div>
+    <div class="nav-flag-overlay" aria-hidden="true"></div>
+
     <div class="container">
       <a class="logo logo-nav" href="#top" aria-label="J&amp;S Renovations LLC home">
         <img src="logo.svg" alt="J&amp;S Renovations LLC" width="220" height="100" />

@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 100" role="img" aria-label="J&amp;S Renovations LLC">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 108" role="img" aria-label="J&amp;S Renovations LLC">
   <defs>
     <!-- Each glyph is drawn as stacked layers (outer colored stroke ->
          white stroke -> solid fill) to create the thin colored + thin
@@ -13,23 +13,24 @@
 
   <!-- ===== J  (black fill, white inner outline, red outer outline) ===== -->
   <g text-anchor="middle">
-    <text class="serif big" x="58" y="62" fill="none" stroke="#b01722" stroke-width="7" stroke-linejoin="round">J</text>
-    <text class="serif big" x="58" y="62" fill="none" stroke="#ffffff" stroke-width="3.4" stroke-linejoin="round">J</text>
-    <text class="serif big" x="58" y="62" fill="#111111">J</text>
+    <text class="serif big" x="58" y="60" fill="none" stroke="#b01722" stroke-width="7" stroke-linejoin="round">J</text>
+    <text class="serif big" x="58" y="60" fill="none" stroke="#ffffff" stroke-width="3.4" stroke-linejoin="round">J</text>
+    <text class="serif big" x="58" y="60" fill="#111111">J</text>
 
     <!-- ===== &  (red fill, white outline) ===== -->
-    <text class="serif big" x="104" y="62" fill="none" stroke="#ffffff" stroke-width="3.4" stroke-linejoin="round">&amp;</text>
-    <text class="serif big" x="104" y="62" fill="#c8102e">&amp;</text>
+    <text class="serif big" x="104" y="60" fill="none" stroke="#ffffff" stroke-width="3.4" stroke-linejoin="round">&amp;</text>
+    <text class="serif big" x="104" y="60" fill="#c8102e">&amp;</text>
 
     <!-- ===== S  (black fill, white inner outline, blue outer outline) ===== -->
-    <text class="serif big" x="150" y="62" fill="none" stroke="#1d4ed8" stroke-width="7" stroke-linejoin="round">S</text>
-    <text class="serif big" x="150" y="62" fill="none" stroke="#ffffff" stroke-width="3.4" stroke-linejoin="round">S</text>
-    <text class="serif big" x="150" y="62" fill="#111111">S</text>
+    <text class="serif big" x="150" y="60" fill="none" stroke="#1d4ed8" stroke-width="7" stroke-linejoin="round">S</text>
+    <text class="serif big" x="150" y="60" fill="none" stroke="#ffffff" stroke-width="3.4" stroke-linejoin="round">S</text>
+    <text class="serif big" x="150" y="60" fill="#111111">S</text>
   </g>
 
-  <!-- ===== Renovations LLC  (red fill, white outline, sans-serif, smaller) ===== -->
-  <g text-anchor="middle">
-    <text class="sans sub" x="110" y="88" fill="none" stroke="#ffffff" stroke-width="2.6" stroke-linejoin="round">Renovations LLC</text>
-    <text class="sans sub" x="110" y="88" fill="#c8102e">Renovations LLC</text>
-  </g>
+  <!-- ===== Renovations LLC  (red fill, white outline, sans-serif, smaller) =====
+       Sits well clear of the J&S descenders; single text with paint-order so the
+       white outline is crisp and uniform on every edge (incl. the top). -->
+  <text class="sans sub" text-anchor="middle" x="110" y="98"
+        fill="#c8102e" stroke="#ffffff" stroke-width="3" stroke-linejoin="round"
+        paint-order="stroke" stroke-linecap="round">Renovations LLC</text>
 </svg>
