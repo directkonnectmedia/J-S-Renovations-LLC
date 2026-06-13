@@ -146,10 +146,8 @@
       position: relative;
       color: #fff;
       text-align: center;
-      padding: 96px 0 110px;
-      background:
-        linear-gradient(180deg, rgba(37, 24, 25, 0.55) 0%, rgba(37, 24, 25, 0.78) 100%),
-        url('https://images.unsplash.com/photo-1632759145351-1d592919f522?auto=format&fit=crop&w=1920&q=70') center / cover no-repeat;
+      padding: 64px 0 76px;
+      background: #2b2c2e; /* gray backdrop (photos are 1024px — too small for full-bleed, so centered on gray) */
     }
     .hero h1 {
       font-family: var(--font-head);
@@ -176,7 +174,46 @@
     }
     .hero .trust span { display: inline-flex; align-items: center; gap: 8px; }
     .hero .trust svg { flex: none; }
-    .hero .cta-row { margin-top: 36px; display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .hero .cta-row { margin-top: 32px; display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+    /* ---------- Hero photo carousel (native 1024x768, centered, rounded, crossfade) ---------- */
+    .hero-carousel {
+      position: relative;
+      width: min(1024px, 92vw);   /* cap at native width — never upscaled */
+      margin: 36px auto 0;
+      aspect-ratio: 4 / 3;        /* exact ratio of the 1024x768 photos */
+      border-radius: 16px;
+      overflow: hidden;
+      background: #1d1e1f;
+      box-shadow: 0 18px 50px rgba(0, 0, 0, 0.45);
+    }
+    .hero-carousel .slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+    .hero-carousel .slide.active { opacity: 1; }
+    .hero-carousel .slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;          /* all slides are 4:3 like the frame, so nothing is cropped */
+      display: block;
+    }
+    .hero-dots { display: flex; gap: 9px; justify-content: center; margin-top: 18px; }
+    .hero-dots button {
+      width: 10px; height: 10px; padding: 0;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      background: transparent;
+      cursor: pointer;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+    .hero-dots button:hover { background: rgba(255, 255, 255, 0.5); }
+    .hero-dots button.active { background: #fff; transform: scale(1.2); }
+    @media (prefers-reduced-motion: reduce) {
+      .hero-carousel .slide { transition: none; }
+    }
 
     /* ---------- Dark service nav strip ---------- */
     .servicestrip { background: var(--tertiary-container); }
@@ -418,6 +455,16 @@
           <a class="btn btn-accent" href="#estimate">Get Your Precision Estimate</a>
           <a class="btn btn-ghost" href="#services">View Our Services</a>
         </div>
+
+        <!-- Photo carousel: 5 native 1024x768 truck photos, crossfade, auto-advance -->
+        <div class="hero-carousel" id="heroCarousel" aria-label="J&amp;S Renovations fleet" aria-roledescription="carousel">
+          <div class="slide active"><img src="images/truck-1.jpg" width="1024" height="768" alt="J&amp;S Renovations Ford and Ram work trucks parked under a carport" /></div>
+          <div class="slide"><img src="images/truck-2.jpg" width="1024" height="768" loading="lazy" alt="J&amp;S Renovations work trucks, side angle" /></div>
+          <div class="slide"><img src="images/truck-3.jpg" width="1024" height="768" loading="lazy" alt="J&amp;S Renovations red and white truck with company logo and phone number" /></div>
+          <div class="slide"><img src="images/truck-4.jpg" width="1024" height="768" loading="lazy" alt="J&amp;S Renovations trucks parked together" /></div>
+          <div class="slide"><img src="images/truck-5.jpg" width="1024" height="768" loading="lazy" alt="J&amp;S Renovations roofing division truck with ladder rack and license info" /></div>
+        </div>
+        <div class="hero-dots" id="heroDots" role="tablist" aria-label="Choose slide"></div>
       </div>
     </section>
 
@@ -625,6 +672,45 @@
   <script>
     // Footer year
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Hero photo carousel: crossfade, auto-advance every 5s, with clickable dots
+    (function () {
+      var carousel = document.getElementById('heroCarousel');
+      if (!carousel) return;
+      var slides = carousel.querySelectorAll('.slide');
+      var dotsWrap = document.getElementById('heroDots');
+      var current = 0;
+      var timer = null;
+      var INTERVAL = 5000;
+
+      // build dots
+      slides.forEach(function (_, i) {
+        var b = document.createElement('button');
+        b.type = 'button';
+        b.setAttribute('role', 'tab');
+        b.setAttribute('aria-label', 'Show photo ' + (i + 1));
+        if (i === 0) b.classList.add('active');
+        b.addEventListener('click', function () { go(i); restart(); });
+        dotsWrap.appendChild(b);
+      });
+      var dots = dotsWrap.querySelectorAll('button');
+
+      function go(n) {
+        slides[current].classList.remove('active');
+        dots[current].classList.remove('active');
+        current = (n + slides.length) % slides.length;
+        slides[current].classList.add('active');
+        dots[current].classList.add('active');
+      }
+      function next() { go(current + 1); }
+      function start() { timer = setInterval(next, INTERVAL); }
+      function restart() { clearInterval(timer); start(); }
+
+      // pause on hover for usability
+      carousel.addEventListener('mouseenter', function () { clearInterval(timer); });
+      carousel.addEventListener('mouseleave', start);
+      start();
+    })();
 
     // Graceful image fallback: if a CDN image fails, show a branded gradient instead of broken alt text
     document.querySelectorAll('img').forEach(function (img) {
