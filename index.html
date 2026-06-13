@@ -114,16 +114,17 @@
     .btn-ghost:hover { background: rgba(255, 255, 255, 0.1); }
     .btn-block { width: 100%; }
 
-    /* ---------- Top utility bar ---------- */
+    /* ---------- Top utility bar (glassmorphism) ---------- */
     .topbar {
       position: sticky;
       top: 0;
       z-index: 50;
-      background: #708090;              /* solid slate gray */
-      border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+      background: rgba(255, 248, 247, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--outline-variant);
     }
     .topbar .container {
-      position: relative;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -137,8 +138,8 @@
     .hero-logo img { display: block; margin: 0 auto; width: min(440px, 84vw); height: auto; filter: drop-shadow(0 4px 14px rgba(0,0,0,0.55)); }
     .footer-logo img { height: 76px; }          /* footer */
     .topnav { display: flex; align-items: center; gap: 28px; }
-    .topnav a { font-size: 14px; font-weight: 600; color: rgba(255, 255, 255, 0.92); text-shadow: 0 1px 3px rgba(0, 0, 0, 0.55); }
-    .topnav a:hover { color: #ffb3b5; }
+    .topnav a { font-size: 14px; font-weight: 500; color: var(--on-surface-variant); }
+    .topnav a:hover { color: var(--primary); }
 
     /* ---------- Hero ---------- */
     .hero {
