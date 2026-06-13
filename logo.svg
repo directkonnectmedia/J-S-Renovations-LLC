@@ -1,13 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 100" role="img" aria-label="J&amp;S Renovations LLC">
   <defs>
-    <radialGradient id="bg" cx="50%" cy="42%" r="75%">
-      <stop offset="0%" stop-color="#d3d8e0"/>
-      <stop offset="70%" stop-color="#b9c0cc"/>
-      <stop offset="100%" stop-color="#a3abb8"/>
-    </radialGradient>
-    <!-- Reusable letter renderers: each glyph is drawn as 3 stacked layers
-         (outer colored stroke -> white stroke -> solid fill) to create the
-         thin colored + thin white + solid-fill border effect. -->
+    <!-- Each glyph is drawn as stacked layers (outer colored stroke ->
+         white stroke -> solid fill) to create the thin colored + thin
+         white + solid-fill border effect. Background is transparent. -->
     <style>
       .serif { font-family: Georgia, 'Times New Roman', serif; font-weight: 700; font-style: italic; }
       .sans  { font-family: 'Arial Black', Arial, 'Helvetica Neue', sans-serif; font-weight: 800; }
@@ -15,9 +10,6 @@
       .sub   { font-size: 18px; letter-spacing: 0.5px; }
     </style>
   </defs>
-
-  <!-- background badge -->
-  <rect x="1" y="1" width="218" height="98" rx="7" fill="url(#bg)"/>
 
   <!-- ===== J  (black fill, white inner outline, red outer outline) ===== -->
   <g text-anchor="middle">
