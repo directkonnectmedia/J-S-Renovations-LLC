@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>R&amp;S Renovations LLC | Roofing, Gutters &amp; Insurance Claims</title>
-  <meta name="description" content="R&amp;S Renovations LLC — premium roofing, gutter work, insurance claims, and public adjusting. Free, no-obligation consultation. Integrity in every shingle and claim." />
+  <title>J&amp;S Renovations LLC | Roofing, Gutters &amp; Insurance Claims</title>
+  <meta name="description" content="J&amp;S Renovations LLC — premium roofing, gutter work, insurance claims, and public adjusting. Free, no-obligation consultation. Integrity in every shingle and claim." />
   <meta name="theme-color" content="#800020" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23800020'/%3E%3Ctext x='16' y='22' font-family='Arial' font-size='15' font-weight='700' fill='white' text-anchor='middle'%3ERS%3C/text%3E%3C/svg%3E" />
 
   <!-- Open Graph -->
-  <meta property="og:title" content="R&amp;S Renovations LLC" />
+  <meta property="og:title" content="J&amp;S Renovations LLC" />
   <meta property="og:description" content="Premium roofing, gutters, and insurance-claim expertise. Free no-obligation consultation." />
   <meta property="og:type" content="website" />
 
@@ -130,17 +130,60 @@
       justify-content: space-between;
       height: 64px;
     }
-    .brand {
-      display: flex;
-      align-items: baseline;
-      gap: 2px;
-      font-family: var(--font-head);
-      font-weight: 800;
-      font-size: 20px;
-      letter-spacing: -0.01em;
+    /* ---------- Logo (J&S Renovations LLC) ---------- */
+    .logo {
+      /* layered text outlines: white inner ring (~2px) + colored outer ring (~1px) */
+      --ol-white:
+        1px 0 0 #fff, -1px 0 0 #fff, 0 1px 0 #fff, 0 -1px 0 #fff,
+        1px 1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, -1px -1px 0 #fff,
+        2px 0 0 #fff, -2px 0 0 #fff, 0 2px 0 #fff, 0 -2px 0 #fff,
+        2px 1px 0 #fff, 2px -1px 0 #fff, -2px 1px 0 #fff, -2px -1px 0 #fff,
+        1px 2px 0 #fff, -1px 2px 0 #fff, 1px -2px 0 #fff, -1px -2px 0 #fff,
+        2px 2px 0 #fff, 2px -2px 0 #fff, -2px 2px 0 #fff, -2px -2px 0 #fff;
+      --ol-red:
+        3px 0 0 #c1121f, -3px 0 0 #c1121f, 0 3px 0 #c1121f, 0 -3px 0 #c1121f,
+        3px 1px 0 #c1121f, 3px -1px 0 #c1121f, -3px 1px 0 #c1121f, -3px -1px 0 #c1121f,
+        1px 3px 0 #c1121f, -1px 3px 0 #c1121f, 1px -3px 0 #c1121f, -1px -3px 0 #c1121f,
+        3px 2px 0 #c1121f, 3px -2px 0 #c1121f, -3px 2px 0 #c1121f, -3px -2px 0 #c1121f,
+        2px 3px 0 #c1121f, -2px 3px 0 #c1121f, 2px -3px 0 #c1121f, -2px -3px 0 #c1121f,
+        3px 3px 0 #c1121f, 3px -3px 0 #c1121f, -3px 3px 0 #c1121f, -3px -3px 0 #c1121f;
+      --ol-blue:
+        3px 0 0 #1d4ed8, -3px 0 0 #1d4ed8, 0 3px 0 #1d4ed8, 0 -3px 0 #1d4ed8,
+        3px 1px 0 #1d4ed8, 3px -1px 0 #1d4ed8, -3px 1px 0 #1d4ed8, -3px -1px 0 #1d4ed8,
+        1px 3px 0 #1d4ed8, -1px 3px 0 #1d4ed8, 1px -3px 0 #1d4ed8, -1px -3px 0 #1d4ed8,
+        3px 2px 0 #1d4ed8, 3px -2px 0 #1d4ed8, -3px 2px 0 #1d4ed8, -3px -2px 0 #1d4ed8,
+        2px 3px 0 #1d4ed8, -2px 3px 0 #1d4ed8, 2px -3px 0 #1d4ed8, -2px -3px 0 #1d4ed8,
+        3px 3px 0 #1d4ed8, 3px -3px 0 #1d4ed8, -3px 3px 0 #1d4ed8, -3px -3px 0 #1d4ed8;
+      --ol-white-thin:
+        1px 0 0 #fff, -1px 0 0 #fff, 0 1px 0 #fff, 0 -1px 0 #fff,
+        1px 1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, -1px -1px 0 #fff;
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      line-height: 0.95;
+      text-decoration: none;
     }
-    .brand .amp { color: var(--primary); }
-    .brand .llc { font-size: 12px; font-weight: 600; color: var(--on-surface-variant); margin-left: 4px; align-self: center; }
+    .logo-main {
+      font-family: Georgia, 'Times New Roman', 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 32px;
+      letter-spacing: 0.5px;
+      white-space: nowrap;
+    }
+    .logo-main .j, .logo-main .s { color: #111; }
+    .logo-main .j { text-shadow: var(--ol-white), var(--ol-red); }
+    .logo-main .s { text-shadow: var(--ol-white), var(--ol-blue); }
+    .logo-main .amp { color: #c1121f; text-shadow: var(--ol-white-thin); margin: 0 1px; }
+    .logo-sub {
+      font-family: var(--font-body);
+      font-weight: 700;
+      font-size: 9.5px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: #c1121f;
+      text-shadow: var(--ol-white-thin);
+      margin-top: 2px;
+    }
     .topnav { display: flex; align-items: center; gap: 28px; }
     .topnav a { font-size: 14px; font-weight: 500; color: var(--on-surface-variant); }
     .topnav a:hover { color: var(--primary); }
@@ -299,6 +342,11 @@
     }
     .field input::placeholder, .field textarea::placeholder { color: rgba(255,255,255,0.45); }
     .field input:focus, .field textarea:focus { outline: none; border-color: #ffb3b5; }
+    .field input.invalid, .field textarea.invalid { border-color: #ff8a8a; background: rgba(186, 26, 26, 0.12); }
+    .err-msg { display: none; margin-top: 6px; font-size: 12.5px; color: #ffb3b5; }
+    .err-msg.show { display: block; }
+    .req { color: #ff8a8a; }
+    .step h3 .hint { display: block; margin-top: 6px; font-family: var(--font-body); font-size: 13px; font-weight: 400; color: rgba(255, 255, 255, 0.6); }
 
     .step-actions { display: flex; justify-content: space-between; gap: 12px; margin-top: 26px; }
     .step-actions .btn-ghost { min-width: 96px; }
@@ -337,9 +385,7 @@
       gap: 48px;
       padding-bottom: 48px;
     }
-    footer .brand { color: #fff; }
-    footer .brand .amp { color: #ffb3b5; }
-    footer .brand .llc { color: rgba(255,255,255,0.6); }
+    footer .logo { margin-bottom: 4px; }
     .footer-col h4 { color: #fff; font-family: var(--font-head); font-size: 15px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 16px; }
     .footer-col a { display: block; padding: 5px 0; font-size: 14.5px; color: rgba(255, 255, 255, 0.7); }
     .footer-col a:hover { color: #ffb3b5; }
@@ -386,8 +432,9 @@
   <!-- Top utility bar -->
   <header class="topbar">
     <div class="container">
-      <a class="brand" href="#top" aria-label="R and S Renovations LLC home">
-        R<span class="amp">&amp;</span>S&nbsp;Renovations <span class="llc">LLC</span>
+      <a class="logo" href="#top" aria-label="J and S Renovations LLC home">
+        <span class="logo-main"><span class="j">J</span><span class="amp">&amp;</span><span class="s">S</span></span>
+        <span class="logo-sub">Renovations LLC</span>
       </a>
       <nav class="topnav" aria-label="Primary">
         <a href="#services">Services</a>
@@ -403,7 +450,7 @@
   <main id="top">
     <section class="hero">
       <div class="container">
-        <h1>R<span class="amp">&amp;</span>S Renovations LLC</h1>
+        <h1>J<span class="amp">&amp;</span>S Renovations LLC</h1>
         <p class="sub">Free, No-Obligation Consultation</p>
         <div class="trust">
           <span>
@@ -493,12 +540,12 @@
 
           <!-- Step 1: service -->
           <div class="step active" data-step="1">
-            <h3>Which service do you need?</h3>
-            <div class="choice-grid" role="radiogroup" aria-label="Service">
-              <label class="choice"><input type="radio" name="service" value="Roofing" hidden /><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/></svg>Roofing</label>
-              <label class="choice"><input type="radio" name="service" value="Gutter Work" hidden /><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h18l-2 6H5z"/><path d="M7 13v4"/><path d="M17 13v4"/></svg>Gutter Work</label>
-              <label class="choice"><input type="radio" name="service" value="Insurance Claims" hidden /><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 15l2 2 4-4"/></svg>Insurance Claims</label>
-              <label class="choice"><input type="radio" name="service" value="Public Adjusting" hidden /><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 4v5c0 5-3.5 7.7-8 9-4.5-1.3-8-4-8-9V7z"/><path d="M9 12l2 2 4-4"/></svg>Public Adjusting</label>
+            <h3>Which service(s) do you need? <span class="hint">Select all that apply</span></h3>
+            <div class="choice-grid" role="group" aria-label="Service">
+              <label class="choice"><input type="checkbox" name="service" value="Roofing" hidden /><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/></svg>Roofing</label>
+              <label class="choice"><input type="checkbox" name="service" value="Gutter Work" hidden /><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h18l-2 6H5z"/><path d="M7 13v4"/><path d="M17 13v4"/></svg>Gutter Work</label>
+              <label class="choice"><input type="checkbox" name="service" value="Insurance Claims" hidden /><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 15l2 2 4-4"/></svg>Insurance Claims</label>
+              <label class="choice"><input type="checkbox" name="service" value="Public Adjusting" hidden /><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 4v5c0 5-3.5 7.7-8 9-4.5-1.3-8-4-8-9V7z"/><path d="M9 12l2 2 4-4"/></svg>Public Adjusting</label>
             </div>
             <div class="step-actions">
               <span class="spacer"></span>
@@ -506,16 +553,13 @@
             </div>
           </div>
 
-          <!-- Step 2: details -->
+          <!-- Step 2: service details -->
           <div class="step" data-step="2">
-            <h3>Tell us about your property</h3>
+            <h3>Service Details</h3>
             <div class="field">
-              <label for="address">Property address</label>
-              <input id="address" name="address" type="text" placeholder="123 Main St, City, ST" autocomplete="street-address" />
-            </div>
-            <div class="field">
-              <label for="details">Brief description of the work or damage</label>
-              <textarea id="details" name="details" rows="3" placeholder="e.g. Storm damage to roof and gutters after recent hail"></textarea>
+              <label for="details">Describe the service you need <span class="req">*</span></label>
+              <textarea id="details" name="details" rows="5" required placeholder="Tell us what you need — for example: file a storm-damage insurance claim, public adjusting for water damage, a new roof, gutter replacement, etc."></textarea>
+              <p class="err-msg" data-err="details">Please describe the service you need.</p>
             </div>
             <div class="step-actions">
               <button type="button" class="btn btn-ghost" data-prev>Back</button>
@@ -528,16 +572,19 @@
           <div class="step" data-step="3">
             <h3>Where should we send your estimate?</h3>
             <div class="field">
-              <label for="name">Full name</label>
-              <input id="name" name="name" type="text" placeholder="Jane Doe" autocomplete="name" />
+              <label for="name">Full name <span class="req">*</span></label>
+              <input id="name" name="name" type="text" required placeholder="Jane Doe" autocomplete="name" />
+              <p class="err-msg" data-err="name">Please enter your full name.</p>
             </div>
             <div class="field">
-              <label for="phone">Phone</label>
-              <input id="phone" name="phone" type="tel" placeholder="(555) 123-4567" autocomplete="tel" />
+              <label for="phone">Phone <span class="req">*</span></label>
+              <input id="phone" name="phone" type="tel" required placeholder="(555) 123-4567" autocomplete="tel" />
+              <p class="err-msg" data-err="phone">Please enter a phone number.</p>
             </div>
             <div class="field">
-              <label for="email">Email</label>
-              <input id="email" name="email" type="email" placeholder="jane@example.com" autocomplete="email" />
+              <label for="email">Email <span class="req">*</span></label>
+              <input id="email" name="email" type="email" required placeholder="jane@example.com" autocomplete="email" />
+              <p class="err-msg" data-err="email">Please enter a valid email address.</p>
             </div>
             <div class="step-actions">
               <button type="button" class="btn btn-ghost" data-prev>Back</button>
@@ -551,7 +598,7 @@
             <div class="confirm">
               <div class="check"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div>
               <h3>Request received</h3>
-              <p style="color: rgba(255,255,255,0.75); max-width: 420px; margin: 0 auto;">Thank you. A member of the R&amp;S Renovations team will contact you within one business day with your no-obligation estimate.</p>
+              <p style="color: rgba(255,255,255,0.75); max-width: 420px; margin: 0 auto;">Thank you. A member of the J&amp;S Renovations team will contact you within one business day with your no-obligation estimate.</p>
             </div>
           </div>
         </form>
@@ -586,7 +633,10 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-about">
-          <a class="brand" href="#top">R<span class="amp">&amp;</span>S&nbsp;Renovations <span class="llc">LLC</span></a>
+          <a class="logo" href="#top" aria-label="J and S Renovations LLC home">
+            <span class="logo-main"><span class="j">J</span><span class="amp">&amp;</span><span class="s">S</span></span>
+            <span class="logo-sub">Renovations LLC</span>
+          </a>
           <p>Premium roofing, gutter work, and insurance-claim advocacy for homeowners who expect quality, transparency, and a premium experience.</p>
         </div>
         <div class="footer-col">
@@ -604,7 +654,7 @@
           </div>
           <div class="contact-line">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/><path d="M22 6l-10 7L2 6"/></svg>
-            info@rsrenovationsllc.com
+            info@jsrenovationsllc.com
           </div>
           <form class="newsletter" onsubmit="return false;">
             <input type="email" placeholder="Email for updates" aria-label="Email for updates" />
@@ -613,7 +663,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <span>© <span id="year">2026</span> R&amp;S Renovations LLC. All rights reserved.</span>
+        <span>© <span id="year">2026</span> J&amp;S Renovations LLC. All rights reserved.</span>
         <span>
           <a href="#">Privacy Policy</a> &nbsp;·&nbsp; <a href="#">Terms of Service</a>
         </span>
@@ -634,21 +684,63 @@
       });
     });
 
-    // Service choice selection
-    document.querySelectorAll('.choice').forEach(function (c) {
-      c.addEventListener('click', function () {
-        document.querySelectorAll('.choice').forEach(function (x) { x.classList.remove('selected'); });
-        c.classList.add('selected');
-        c.querySelector('input').checked = true;
-      });
-    });
-
-    // Multi-step navigation
     var form = document.getElementById('stepper');
     var steps = form.querySelectorAll('.step');
     var dots = form.querySelectorAll('.dot');
     var current = 1;
     var maxStep = 3; // steps 1-3 are input; 4 is confirmation
+
+    // Step 1: multiple choice — toggle the highlighted card to match its checkbox
+    form.querySelectorAll('.choice input').forEach(function (input) {
+      input.addEventListener('change', function () {
+        input.closest('.choice').classList.toggle('selected', input.checked);
+      });
+    });
+
+    // Inline error helpers
+    function showErr(name, on) {
+      var msg = form.querySelector('.err-msg[data-err="' + name + '"]');
+      var field = form.querySelector('[name="' + name + '"]');
+      if (msg) { msg.classList.toggle('show', on); }
+      if (field) { field.classList.toggle('invalid', on); }
+    }
+
+    // Validate a given step; returns true if valid, and surfaces inline errors
+    function validateStep(n) {
+      if (n === 1) {
+        var anyService = form.querySelectorAll('input[name="service"]:checked').length > 0;
+        if (!anyService) { alert('Please select at least one service to continue.'); }
+        return anyService;
+      }
+      if (n === 2) {
+        var details = form.querySelector('[name="details"]');
+        var ok = details.value.trim().length > 0;
+        showErr('details', !ok);
+        if (!ok) { details.focus(); }
+        return ok;
+      }
+      if (n === 3) {
+        var name = form.querySelector('[name="name"]');
+        var phone = form.querySelector('[name="phone"]');
+        var email = form.querySelector('[name="email"]');
+        var nameOk = name.value.trim().length > 0;
+        var phoneOk = phone.value.replace(/[^0-9]/g, '').length >= 7;
+        var emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim());
+        showErr('name', !nameOk);
+        showErr('phone', !phoneOk);
+        showErr('email', !emailOk);
+        var firstBad = !nameOk ? name : !phoneOk ? phone : !emailOk ? email : null;
+        if (firstBad) { firstBad.focus(); }
+        return nameOk && phoneOk && emailOk;
+      }
+      return true;
+    }
+
+    // Clear an error as soon as the user starts fixing the field
+    ['details', 'name', 'phone', 'email'].forEach(function (n) {
+      var f = form.querySelector('[name="' + n + '"]');
+      if (f) { f.addEventListener('input', function () { showErr(n, false); }); }
+    });
 
     function render() {
       steps.forEach(function (s) {
@@ -663,10 +755,7 @@
 
     form.addEventListener('click', function (e) {
       if (e.target.matches('[data-next]')) {
-        if (current === 1 && !form.querySelector('input[name="service"]:checked')) {
-          alert('Please select a service to continue.');
-          return;
-        }
+        if (!validateStep(current)) { return; }
         if (current < maxStep) { current++; render(); }
       }
       if (e.target.matches('[data-prev]')) {
@@ -676,6 +765,7 @@
 
     form.addEventListener('submit', function (e) {
       e.preventDefault();
+      if (!validateStep(3)) { return; }
       // No backend yet — show confirmation. Swap this for a real endpoint when ready.
       current = 4;
       render();

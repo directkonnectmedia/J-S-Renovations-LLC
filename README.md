@@ -1,6 +1,6 @@
-# R&S Renovations LLC
+# J&S Renovations LLC
 
-Marketing site for **R&S Renovations LLC** — roofing, gutter work, insurance claims, and public adjusting.
+Marketing site for **J&S Renovations LLC** — roofing, gutter work, insurance claims, and public adjusting.
 
 Built as a single, fast, dependency-free static page following the **Heritage Craft** design system (see [`DESIGN.md`](DESIGN.md)).
 
@@ -23,7 +23,9 @@ npx serve .
 
 ## Deploy
 
-Hosted on **Vercel** (project: `R&S-Renovations-LLC`). Pushing to the default branch triggers a production deploy.
+Hosted on **Vercel** (project: `r-s-renovations-llc`). Pushing to the default branch triggers a production deploy.
+
+> Note: the GitHub repo and Vercel project are named `R-S-Renovations-LLC` / `r-s-renovations-llc` for historical reasons. The business and all site content are **J&S Renovations LLC**.
 
 ```bash
 vercel --prod
