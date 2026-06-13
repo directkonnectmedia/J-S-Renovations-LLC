@@ -114,26 +114,16 @@
     .btn-ghost:hover { background: rgba(255, 255, 255, 0.1); }
     .btn-block { width: 100%; }
 
-    /* ---------- Top utility bar (animated flag background) ---------- */
+    /* ---------- Top utility bar ---------- */
     .topbar {
       position: sticky;
       top: 0;
       z-index: 50;
-      overflow: hidden;                 /* clip the waving flag */
-      background: #2b2c2e;              /* fallback behind the flag */
-      border-bottom: 1px solid rgba(0, 0, 0, 0.25);
-    }
-    .nav-flag {
-      position: absolute; inset: 0; z-index: 0;
-      background: url('images/flag.png') center / cover no-repeat;
-    }
-    .nav-flag-overlay {
-      position: absolute; inset: 0; z-index: 1;
-      background: rgba(64, 66, 70, 0.62);   /* gray overlay muting the flag */
+      background: #708090;              /* solid slate gray */
+      border-bottom: 1px solid rgba(0, 0, 0, 0.2);
     }
     .topbar .container {
       position: relative;
-      z-index: 2;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -478,10 +468,6 @@
 
   <!-- Top utility bar -->
   <header class="topbar">
-    <!-- static American flag background + gray overlay -->
-    <div class="nav-flag" aria-hidden="true"></div>
-    <div class="nav-flag-overlay" aria-hidden="true"></div>
-
     <div class="container">
       <a class="logo logo-nav" href="#top" aria-label="J&amp;S Renovations LLC home">
         <img src="logo.svg" alt="J&amp;S Renovations LLC" width="220" height="100" />
