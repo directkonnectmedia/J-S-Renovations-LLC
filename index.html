@@ -236,8 +236,25 @@
       gap: 4cqw;
       font-size: clamp(11px, 2cqw, 15px);
     }
-    .hero-overlay .cta-row { margin-top: 3cqw; }
-    .hero-overlay .cta-row .btn { pointer-events: auto; }
+    .hero-overlay .hero-services { margin-top: 3cqw; pointer-events: auto; }
+    .hero-services-label {
+      display: block; color: #fff; font-weight: 700;
+      font-size: clamp(14px, 2.6cqw, 20px); letter-spacing: 0.03em;
+      margin-bottom: 1.8cqw; text-shadow: 0 1px 4px rgba(0,0,0,0.5);
+    }
+    .hero-services-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1.4cqw;
+      max-width: 48cqw; margin: 0 auto;
+    }
+    .hero-svc-btn {
+      display: flex; align-items: center; justify-content: center; text-align: center;
+      background: #4c9a2a; color: #ffffff; font-weight: 700;
+      font-size: clamp(11px, 1.9cqw, 15px);
+      padding: 1.4cqw 1cqw; border-radius: var(--radius-sm);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.25);
+      transition: background 0.2s ease, transform 0.15s ease;
+    }
+    .hero-svc-btn:hover { background: #58ad32; transform: translateY(-1px); }
     .hero-overlay .sub, .hero-overlay .trust, .hero-overlay .hero-logo { pointer-events: auto; }
     /* compact the overlay when the photo frame is narrow (mobile) so nothing overflows the 4:3 frame */
     @container (max-width: 600px) {
@@ -245,8 +262,10 @@
       .hero-overlay .hero-logo img { width: 40cqw; }
       .hero-overlay .sub { margin-top: 1.6cqw; }
       .hero-overlay .trust { margin-top: 1.6cqw; gap: 3cqw; }
-      .hero-overlay .cta-row { margin-top: 2cqw; gap: 8px; }
-      .hero-overlay .cta-row .btn { padding: 9px 14px; font-size: 13px; }
+      .hero-overlay .hero-services { margin-top: 2cqw; }
+      .hero-services-label { margin-bottom: 2cqw; }
+      .hero-services-grid { gap: 2cqw; max-width: 70cqw; }
+      .hero-svc-btn { padding: 2.4cqw 1cqw; }
     }
 
     .hero-dots { display: flex; gap: 9px; justify-content: center; margin-top: 18px; }
@@ -568,9 +587,14 @@
                 5-Star Local Reputation
               </span>
             </div>
-            <div class="cta-row">
-              <a class="btn btn-accent" href="#estimate">Get Your Precision Estimate</a>
-              <a class="btn btn-ghost" href="#services">View Our Services</a>
+            <div class="hero-services">
+              <span class="hero-services-label">Our Services</span>
+              <div class="hero-services-grid">
+                <a class="hero-svc-btn" href="#estimate">Roofing</a>
+                <a class="hero-svc-btn" href="#estimate">Gutter Work</a>
+                <a class="hero-svc-btn" href="#estimate">Insurance Claims</a>
+                <a class="hero-svc-btn" href="#estimate">Public Adjusting</a>
+              </div>
             </div>
           </div>
         </div>
@@ -579,12 +603,12 @@
     </section>
 
     <!-- Dark service nav strip -->
-    <nav class="servicestrip" aria-label="Services">
+    <nav class="servicestrip" aria-label="Quick navigation">
       <div class="container">
-        <a href="#services">Roofing</a>
-        <a href="#services">Gutter Work</a>
-        <a href="#services">Insurance Claims</a>
-        <a href="#services">Public Adjusting</a>
+        <a href="#services">Services</a>
+        <a href="#estimate">Get an Estimate</a>
+        <a href="#about">About Us</a>
+        <a href="#contact">Contact Us</a>
       </div>
     </nav>
 
