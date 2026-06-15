@@ -16,7 +16,7 @@
   <!-- Fonts: preconnect + display swap for fast first paint -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" />
 
   <style>
     :root {
@@ -298,25 +298,73 @@
     .section-head p { color: var(--on-surface-variant); margin-top: 10px; max-width: 620px; margin-inline: auto; }
 
     /* ---------- Services grid ---------- */
-    .services-grid {
+    /* Editorial vertical rows: image left, text right */
+    .services-list { display: flex; flex-direction: column; }
+    .svc-row {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: var(--gutter);
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 64px;
+      align-items: center;
+      padding: 72px 0;
+      border-top: 1px solid var(--outline-variant);
     }
-    .service-card {
-      background: var(--white);
-      border: 1px solid var(--outline-variant);
-      border-radius: var(--radius-lg);
+    .svc-row:first-child { border-top: 0; padding-top: 8px; }
+    .svc-media {
+      border-radius: var(--radius-xl);
       overflow: hidden;
-      transition: box-shadow 0.25s ease, transform 0.2s ease, border-color 0.2s ease;
+      box-shadow: var(--shadow-card);
+      aspect-ratio: 4 / 3;
     }
-    .service-card:hover { box-shadow: var(--shadow-card); transform: translateY(-3px); border-color: var(--primary); }
-    .service-card .thumb { aspect-ratio: 4 / 3; overflow: hidden; }
-    .service-card .thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
-    .service-card:hover .thumb img { transform: scale(1.05); }
-    .service-card .body { padding: 22px 20px 26px; }
-    .service-card h3 { font-family: var(--font-head); font-size: 19px; font-weight: 600; }
-    .service-card p { margin-top: 8px; font-size: 14.5px; color: var(--on-surface-variant); }
+    .svc-media img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s ease; }
+    .svc-row:hover .svc-media img { transform: scale(1.04); }
+    .svc-content { position: relative; padding-top: 26px; }
+    .svc-num {
+      position: absolute;
+      top: -46px; left: -8px;
+      font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
+      font-weight: 800;
+      font-size: clamp(104px, 12vw, 176px);
+      line-height: 1;
+      color: #ece3e3;            /* large, faint light-gray sequence number */
+      z-index: 0;
+      pointer-events: none;
+      user-select: none;
+    }
+    .svc-content > * { position: relative; z-index: 1; }
+    .svc-eyebrow {
+      font-size: 13px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--primary);
+    }
+    .svc-title {
+      font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
+      font-weight: 700;
+      font-size: clamp(30px, 3.6vw, 46px);
+      line-height: 1.08;
+      letter-spacing: -0.01em;
+      color: var(--on-surface);
+      margin-top: 10px;
+    }
+    .svc-desc {
+      margin-top: 16px;
+      font-size: 17px;
+      line-height: 1.7;
+      color: var(--on-surface-variant);
+      max-width: 470px;
+    }
+    .btn-quote {
+      display: inline-flex; align-items: center; gap: 9px;
+      margin-top: 28px;
+      padding: 13px 26px;
+      border: 1px solid var(--on-surface);
+      border-radius: var(--radius-full);
+      font-size: 14px; font-weight: 600;
+      color: var(--on-surface);
+      background: transparent;
+      transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    }
+    .btn-quote:hover { background: var(--primary); border-color: var(--primary); color: #fff; }
+    .btn-quote svg { transition: transform 0.2s ease; }
+    .btn-quote:hover svg { transform: translate(2px, -2px); }
 
     /* ---------- Estimate / stepper ---------- */
     .estimate {
@@ -451,7 +499,7 @@
 
     /* ---------- Responsive ---------- */
     @media (max-width: 960px) {
-      .services-grid { grid-template-columns: 1fr 1fr; }
+      .svc-row { gap: 40px; padding: 56px 0; }
       .integrity .container { grid-template-columns: 1fr; gap: 36px; }
       .footer-grid { grid-template-columns: 1fr 1fr; }
       .footer-about { grid-column: 1 / -1; }
@@ -459,7 +507,9 @@
     @media (max-width: 640px) {
       section { padding: 56px 0; }
       .topnav { display: none; }
-      .services-grid { grid-template-columns: 1fr; }
+      .svc-row { grid-template-columns: 1fr; gap: 24px; padding: 40px 0; }
+      .svc-content { padding-top: 14px; }
+      .svc-num { font-size: clamp(80px, 22vw, 120px); top: -34px; }
       .choice-grid { grid-template-columns: 1fr; }
       .stepper { padding: 24px 20px; }
       .stats { gap: 32px; }
@@ -540,33 +590,56 @@
           <h2>Services Offered</h2>
           <p>Precision craftsmanship and transparent claims advocacy, from the first shingle to the final settlement.</p>
         </div>
-        <div class="services-grid">
-          <article class="service-card">
-            <div class="thumb"><img loading="lazy" src="images/roofing.jpg" width="800" height="600" alt="Roofers installing asphalt shingles on a roof" /></div>
-            <div class="body">
-              <h3>Roofing</h3>
-              <p>Expert installation and repair of high-quality roofing systems built to last and to protect.</p>
+        <div class="services-list">
+          <article class="svc-row">
+            <div class="svc-media"><img loading="lazy" src="images/roofing.jpg" width="800" height="600" alt="Roofers installing asphalt shingles on a roof" /></div>
+            <div class="svc-content">
+              <span class="svc-num" aria-hidden="true">01</span>
+              <span class="svc-eyebrow">— Durable Protection</span>
+              <h3 class="svc-title">Roofing</h3>
+              <p class="svc-desc">Expert installation and repair of high-quality roofing systems — built to last and to protect your home through every season.</p>
+              <a class="btn-quote" href="#estimate">Get a Free Quote
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+              </a>
             </div>
           </article>
-          <article class="service-card">
-            <div class="thumb"><img loading="lazy" src="images/gutter.jpg" width="800" height="600" alt="Close-up of a home's gutter and downspout system" /></div>
-            <div class="body">
-              <h3>Gutter Work</h3>
-              <p>Seamless gutter installation and maintenance to protect your foundation and exterior.</p>
+
+          <article class="svc-row">
+            <div class="svc-media"><img loading="lazy" src="images/gutter.jpg" width="800" height="600" alt="Close-up of a home's gutter and downspout system" /></div>
+            <div class="svc-content">
+              <span class="svc-num" aria-hidden="true">02</span>
+              <span class="svc-eyebrow">— Water Management</span>
+              <h3 class="svc-title">Gutter Work</h3>
+              <p class="svc-desc">Seamless gutter installation and maintenance that channels water away from your foundation, siding, and landscaping.</p>
+              <a class="btn-quote" href="#estimate">Get a Free Quote
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+              </a>
             </div>
           </article>
-          <article class="service-card">
-            <div class="thumb"><img loading="lazy" src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=600&q=60" alt="Insurance claim paperwork" /></div>
-            <div class="body">
-              <h3>Insurance Claims</h3>
-              <p>End-to-end guidance through storm and damage claims so you receive the coverage you are owed.</p>
+
+          <article class="svc-row">
+            <div class="svc-media"><img loading="lazy" src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=800&q=60" alt="Insurance claim paperwork" /></div>
+            <div class="svc-content">
+              <span class="svc-num" aria-hidden="true">03</span>
+              <span class="svc-eyebrow">— Claim Advocacy</span>
+              <h3 class="svc-title">Insurance Claims</h3>
+              <p class="svc-desc">End-to-end guidance through storm and damage claims, so you receive the full coverage you are rightfully owed.</p>
+              <a class="btn-quote" href="#estimate">Get a Free Quote
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+              </a>
             </div>
           </article>
-          <article class="service-card">
-            <div class="thumb"><img loading="lazy" src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=600&q=60" alt="Public adjuster reviewing documents" /></div>
-            <div class="body">
-              <h3>Public Adjusting</h3>
-              <p>Licensed advocates working solely for you to maximize and expedite your property settlement.</p>
+
+          <article class="svc-row">
+            <div class="svc-media"><img loading="lazy" src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=800&q=60" alt="Public adjuster reviewing documents" /></div>
+            <div class="svc-content">
+              <span class="svc-num" aria-hidden="true">04</span>
+              <span class="svc-eyebrow">— Maximize Your Payout</span>
+              <h3 class="svc-title">Public Adjusting</h3>
+              <p class="svc-desc">Licensed advocates working solely for you — to maximize and expedite your property settlement, start to finish.</p>
+              <a class="btn-quote" href="#estimate">Get a Free Quote
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+              </a>
             </div>
           </article>
         </div>
