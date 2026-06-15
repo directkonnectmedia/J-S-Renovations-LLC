@@ -219,7 +219,7 @@
       position: absolute; inset: 0; z-index: 3;
       display: flex; flex-direction: column; align-items: center; text-align: center;
       justify-content: flex-start;
-      padding: 9cqw 5cqw 10cqw;   /* logo ~75% up; text group pushed to lower third */
+      padding: 9cqw 5cqw 3cqw;    /* logo ~75% up; text group pushed to lower third */
       pointer-events: none;       /* let only interactive children catch clicks */
     }
     .hero-overlay .hero-logo { margin: 0; }
@@ -258,7 +258,7 @@
     .hero-overlay .sub, .hero-overlay .trust, .hero-overlay .hero-logo { pointer-events: auto; }
     /* compact the overlay when the photo frame is narrow (mobile) so nothing overflows the 4:3 frame */
     @container (max-width: 600px) {
-      .hero-overlay { padding-top: 3cqw; padding-bottom: 6cqw; }
+      .hero-overlay { padding-top: 3cqw; padding-bottom: 3cqw; }
       .hero-overlay .hero-logo img { width: 40cqw; }
       .hero-overlay .sub { margin-top: 1.6cqw; }
       .hero-overlay .trust { margin-top: 1.6cqw; gap: 3cqw; }
