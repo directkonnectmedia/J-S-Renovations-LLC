@@ -2,13 +2,8 @@
 // via the Resend API, authenticating with the `rsrenovationskey` env var.
 
 const TO_EMAIL = 'jsrenovations1@hotmail.com';
-// Resend requires the "from" to be on a verified domain to send to arbitrary
-// recipients. Once you verify a domain at resend.com/domains, set a Vercel env
-// var QUOTE_FROM (e.g. "J&S Renovations <quotes@yourdomain.com>"). Until then it
-// falls back to onboarding@resend.dev, which can only send to the Resend account
-// owner's own email address.
-const FROM_EMAIL = process.env.QUOTE_FROM || 'J&S Renovations <onboarding@resend.dev>';
-const SUBJECT = 'New Quote Request';
+const FROM_EMAIL = 'J&S Renovations <onboarding@resend.dev>';
+const SUBJECT = 'New Client Quote Request';
 
 // Escape user-supplied values so they can't inject markup into the email.
 function escapeHtml(value) {
@@ -41,9 +36,9 @@ module.exports = async function handler(req, res) {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  const apiKey = process.env.rsrenovationskey;
+  const apiKey = process.env.Renovationskey;
   if (!apiKey) {
-    console.error('Missing rsrenovationskey environment variable.');
+    console.error('Missing Renovationskey environment variable.');
     return res.status(500).json({ error: 'Email service is not configured.' });
   }
 
