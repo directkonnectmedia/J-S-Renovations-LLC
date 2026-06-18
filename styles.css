@@ -229,7 +229,7 @@
       display: flex; align-items: center; justify-content: center; text-align: center;
       background: #4c9a2a; color: #ffffff; font-weight: 700;
       font-size: clamp(11px, 1.9cqw, 15px);
-      padding: 1.4cqw 1cqw; border-radius: var(--radius-sm);
+      padding: 1.4cqw 1cqw; border-radius: 50px;
       box-shadow: 0 2px 10px rgba(0,0,0,0.25);
       transition: background 0.2s ease, transform 0.15s ease;
     }
@@ -307,6 +307,8 @@
 
     /* ---------- Services grid ---------- */
     /* Editorial vertical rows: image left, text right */
+    #services { background: #FFFFFF; }
+    #services .section-head .label { font-size: 21px; }  /* "What We Do" +50% (14px -> 21px) */
     .services-list { display: flex; flex-direction: column; }
     .svc-row {
       display: grid;
@@ -343,7 +345,7 @@
     .svc-row:nth-child(even) .svc-media { grid-column: 2; grid-row: 1; }
     .svc-row:nth-child(even) .svc-content { grid-column: 1; grid-row: 1; }
     .svc-eyebrow {
-      font-size: 13px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+      font-size: 13px; font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase;
       color: var(--primary);
     }
     .svc-title {
@@ -357,8 +359,10 @@
     }
     .svc-desc {
       margin-top: 16px;
+      font-family: 'Inter', 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-weight: 400;
       font-size: 17px;
-      line-height: 1.7;
+      line-height: 1.6;
       color: var(--on-surface-variant);
       max-width: 470px;
     }
@@ -366,11 +370,11 @@
       display: inline-flex; align-items: center; gap: 9px;
       margin-top: 28px;
       padding: 13px 26px;
-      border: 1px solid var(--on-surface);
-      border-radius: var(--radius-full);
+      border: 1px solid #333333;
+      border-radius: 50px;
       font-size: 14px; font-weight: 600;
-      color: var(--on-surface);
-      background: transparent;
+      color: #fff;
+      background: #333333;
       transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
     }
     .btn-quote:hover { background: var(--primary); border-color: var(--primary); color: #fff; }
@@ -536,7 +540,7 @@
     .btn-gallery {
       display: inline-flex; align-items: center; justify-content: center; gap: 8px;
       padding: 13px 26px;
-      border-radius: var(--radius-full);
+      border-radius: 50px;
       font-size: 14px; font-weight: 600;
       color: #fff; background: #4c9a2a; border: 1px solid #4c9a2a;
       transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
