@@ -46,8 +46,8 @@
         <!-- Photo carousel (3 native 1024x768 truck photos, crossfade, auto-advance) with content overlaid -->
         <div class="hero-carousel" id="heroCarousel" aria-label="J&amp;S Renovations fleet" aria-roledescription="carousel">
           <div class="slide active"><img src="images/truck-5.jpg" width="1024" height="768" alt="J&amp;S Renovations roofing division truck with ladder rack and license info" /></div>
-          <div class="slide"><img src="images/truck-4.jpg" width="1024" height="768" loading="lazy" alt="J&amp;S Renovations trucks parked together" /></div>
-          <div class="slide"><img src="images/truck-3.jpg" width="1024" height="768" loading="lazy" alt="J&amp;S Renovations red and white truck with company logo and phone number" /></div>
+          <div class="slide"><img src="images/truck-4.jpg" width="1024" height="768" decoding="async" alt="J&amp;S Renovations trucks parked together" /></div>
+          <div class="slide"><img src="images/truck-3.jpg" width="1024" height="768" decoding="async" alt="J&amp;S Renovations red and white truck with company logo and phone number" /></div>
 
           <div class="hero-scrim"></div>
 
@@ -333,7 +333,7 @@
     // Footer year
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Hero photo carousel: crossfade, auto-advance every 2s, with clickable dots
+    // Hero photo carousel: crossfade, auto-advance every 3.6s, with clickable dots
     (function () {
       var carousel = document.getElementById('heroCarousel');
       if (!carousel) return;
@@ -341,7 +341,7 @@
       var dotsWrap = document.getElementById('heroDots');
       var current = 0;
       var timer = null;
-      var INTERVAL = 2000;
+      var INTERVAL = 3600;
 
       // build dots
       slides.forEach(function (_, i) {
@@ -366,9 +366,6 @@
       function start() { timer = setInterval(next, INTERVAL); }
       function restart() { clearInterval(timer); start(); }
 
-      // pause on hover for usability
-      carousel.addEventListener('mouseenter', function () { clearInterval(timer); });
-      carousel.addEventListener('mouseleave', start);
       start();
     })();
 
