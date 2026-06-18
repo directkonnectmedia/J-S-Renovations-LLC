@@ -327,8 +327,9 @@
 
     /* ---------- Services grid ---------- */
     /* Editorial vertical rows: image left, text right */
-    #services { background: #FFFFFF; }
-    #services .section-head .label { font-size: 21px; color: #ba1a1a; }  /* "What We Do" +50% + nav-button red */
+    #services { background: #2b2c2e; }  /* hero's gray backdrop */
+    #services .section-head .label { font-size: 21px; color: #ffffff; font-family: 'Playfair Display', Georgia, 'Times New Roman', serif; }  /* "What We Do" — Roofing serif, +50%, white */
+    #services .section-head h2 { color: #ffffff; font-family: 'Playfair Display', Georgia, 'Times New Roman', serif; }  /* "Services Offered" — white, Roofing serif */
     .services-list { display: flex; flex-direction: column; }
     .svc-row {
       display: grid;
@@ -336,7 +337,7 @@
       gap: 64px;
       align-items: center;
       padding: 72px 0;
-      border-top: 1px solid var(--outline-variant);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
     }
     .svc-row:first-child { border-top: 0; padding-top: 8px; }
     .svc-media {
@@ -355,7 +356,7 @@
       font-weight: 800;
       font-size: clamp(104px, 12vw, 176px);
       line-height: 1;
-      color: #ece3e3;            /* large, faint light-gray sequence number */
+      color: rgba(255, 255, 255, 0.5); /* large white sequence number — clearly visible backdrop */
       z-index: 0;
       pointer-events: none;
       user-select: none;
@@ -365,8 +366,9 @@
     .svc-row:nth-child(even) .svc-media { grid-column: 2; grid-row: 1; }
     .svc-row:nth-child(even) .svc-content { grid-column: 1; grid-row: 1; }
     .svc-eyebrow {
+      font-family: 'Inter', 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
       font-size: 20px; font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase;
-      color: #ba1a1a;
+      color: #ffb3b5;
     }
     .svc-title {
       font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
@@ -374,7 +376,7 @@
       font-size: clamp(30px, 3.6vw, 46px);
       line-height: 1.08;
       letter-spacing: -0.01em;
-      color: var(--on-surface);
+      color: #ffffff;
       margin-top: 10px;
     }
     .svc-desc {
@@ -383,18 +385,18 @@
       font-weight: 400;
       font-size: 17px;
       line-height: 1.6;
-      color: var(--on-surface-variant);
+      color: rgba(255, 255, 255, 0.85);
       max-width: 470px;
     }
     .btn-quote {
       display: inline-flex; align-items: center; gap: 9px;
       margin-top: 28px;
       padding: 13px 26px;
-      border: 1px solid #333333;
+      border: 1px solid rgba(255, 255, 255, 0.45);
       border-radius: 50px;
       font-size: 14px; font-weight: 600;
       color: #fff;
-      background: #333333;
+      background: rgba(255, 255, 255, 0.08);
       transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
     }
     .btn-quote:hover { background: var(--primary); border-color: var(--primary); color: #fff; }
@@ -404,17 +406,18 @@
     /* ---------- Estimate / stepper ---------- */
     .estimate {
       background:
-        linear-gradient(180deg, rgba(27, 28, 28, 0.92), rgba(27, 28, 28, 0.96)),
+        linear-gradient(180deg, rgba(27, 28, 28, 0.5), rgba(27, 28, 28, 0.6)),
         url('https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=1920&q=60') center / cover fixed;
       color: #fff;
     }
-    .estimate .section-head .label { color: #ffb3b5; }
-    .estimate .section-head p { color: rgba(255, 255, 255, 0.7); }
+    .estimate .section-head h2 { text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6); }
+    .estimate .section-head .label { color: #ffb3b5; text-shadow: 0 1px 6px rgba(0, 0, 0, 0.5); }
+    .estimate .section-head p { color: rgba(255, 255, 255, 0.85); text-shadow: 0 1px 6px rgba(0, 0, 0, 0.55); }
     .stepper {
       max-width: 720px;
       margin: 0 auto;
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(17, 18, 19, 0.45);
+      border: 1px solid rgba(255, 255, 255, 0.14);
       border-radius: var(--radius-xl);
       padding: 36px;
       backdrop-filter: blur(6px);
