@@ -242,14 +242,14 @@
     .hero-overlay .sub, .hero-overlay .trust, .hero-overlay .hero-logo { pointer-events: auto; }
     /* compact the overlay when the photo frame is narrow (mobile) so nothing overflows the 4:3 frame */
     @container (max-width: 600px) {
-      .hero-overlay { padding-top: 3cqw; padding-bottom: 3cqw; }
+      .hero-overlay { padding-top: 3cqw; padding-bottom: 1cqw; }  /* buttons sit at the bottom edge */
       .hero-overlay .hero-logo img { width: 40cqw; }
       .hero-overlay .sub { margin-top: 1.6cqw; }
       .hero-overlay .trust { margin-top: 1.6cqw; gap: 3cqw; }
-      .hero-overlay .hero-services { margin-top: 2cqw; }
-      .hero-services-label { margin-bottom: 2cqw; }
+      .hero-overlay .hero-services { margin-top: auto; }  /* sink the group to the bottom, off the imagery center */
+      .hero-services-label { margin-bottom: 1cqw; font-size: clamp(12px, 3.6cqw, 15px); }  /* half the gap, ~30% smaller label */
       .hero-services-grid { gap: 2cqw; max-width: 70cqw; }
-      .hero-svc-btn { padding: 2.4cqw 1cqw; }
+      .hero-svc-btn { padding: 0.6cqw 1cqw; }  /* ~35% slimmer vertically; width/oval unchanged */
     }
 
     .hero-dots { display: flex; gap: 9px; justify-content: center; margin-top: 18px; }
@@ -303,10 +303,10 @@
       font-size: 11px;
       color: rgba(255, 255, 255, 0.30);
     }
-    /* two identical halves; shift by one half for a seamless rightward loop */
+    /* two identical halves; shift by one half for a seamless leftward loop */
     @keyframes strip-scroll {
-      from { transform: translateX(-50%); }
-      to   { transform: translateX(0); }
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
     }
     @media (prefers-reduced-motion: reduce) {
       .servicestrip .marquee__track { animation: none; }
