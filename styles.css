@@ -263,6 +263,20 @@
     }
     .hero-dots button:hover { background: rgba(255, 255, 255, 0.5); }
     .hero-dots button.active { background: #fff; transform: scale(1.2); }
+    /* Full-bleed hero carousel on mobile — edge-to-edge image, no gray frame.
+       Keyed to 600px so it stays in sync with the overlay's @container query
+       (carousel becomes 100vw, so viewport <=600px == carousel <=600px). */
+    @media (max-width: 600px) {
+      .hero { padding: 0; }
+      .hero > .container { max-width: none; padding: 0; }
+      .hero-carousel {
+        width: 100%;
+        margin: 0;
+        border-radius: 0;
+        box-shadow: none;
+      }
+      .hero-dots { margin: 12px 0 14px; }
+    }
     @media (prefers-reduced-motion: reduce) {
       .hero-carousel .slide { transition: none; }
     }
