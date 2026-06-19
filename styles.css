@@ -271,11 +271,14 @@
       .hero > .container { max-width: none; padding: 0; }
       .hero-carousel {
         width: 100%;
+        height: 97.5vw;            /* current 4:3 height (75vw) + 30%; image fit/object-fit unchanged */
+        aspect-ratio: auto;        /* release the 4/3 lock so the taller height applies */
         margin: 0;
         border-radius: 0;
         box-shadow: none;
       }
-      .hero-dots { margin: 12px 0 14px; }
+      .hero-dots { display: none; }       /* remove pagination dots on mobile — swipe instead */
+      nav.servicestrip { border-top: 0; }    /* drop the white hairline directly below the hero (raised specificity to beat the later base rule) */
     }
     @media (prefers-reduced-motion: reduce) {
       .hero-carousel .slide { transition: none; }
